@@ -1,14 +1,14 @@
 # SketchHopper Pipeline
 
-This directory contains the main pipeline code for converting hand-drawn sketches to parametric CadQuery Python code.
+This repository contains the SketchHopper pipeline, which converts hand-drawn sketches to parametric CadQuery Python code.
 
 ## Overview
 
 The SketchHopper pipeline consists of three main stages:
 
-1. **Sketch Cleaning** (`pipeline/sketch_cleaner.py`): Uses `img2vector` to clean and preprocess sketches
-2. **Point Cloud Generation** (`pipeline/pointcloud_generator.py`): Uses `SketchSampler` to generate 3D point clouds
-3. **Code Generation** (`pipeline/code_generator.py`): Uses fine-tuned `3D-LLaVA` to generate CadQuery code
+1. **Sketch Cleaning** (`src/pipeline/sketch_cleaner.py`): Uses `img2vector` to clean and preprocess sketches
+2. **Point Cloud Generation** (`src/pipeline/pointcloud_generator.py`): Uses `SketchSampler` to generate 3D point clouds
+3. **Code Generation** (`src/pipeline/code_generator.py`): Uses fine-tuned `3D-LLaVA` to generate CadQuery code
 
 ## Quick Start
 
@@ -30,7 +30,6 @@ from src.pipeline import SketchHopperPipeline
 
 # Initialize pipeline
 pipeline = SketchHopperPipeline(
-    pipeline = SketchHopperPipeline(
     sketchsampler_checkpoint="path/to/sketchsampler/checkpoint.ckpt",
     llava_checkpoint="path/to/3d-llava/checkpoint",
     device="cuda"
@@ -53,7 +52,7 @@ python src/pipeline/inference.py \
 
 ## Training Workflow
 
-See `PIPELINE_PLAN.md` for detailed training instructions. Quick summary:
+See `src/PIPELINE_PLAN.md` for detailed training instructions. Quick summary:
 
 ### 1. Prepare Training Data
 
@@ -88,22 +87,19 @@ cd 3d-llava
 bash scripts/train/finetune-3d-llava-cadquery.sh
 ```
 
-## Directory Structure
+## Repository Structure
 
 ```
-src/
-├── pipeline/              # Main pipeline components
-│   ├── sketch_cleaner.py      # Sketch preprocessing
-│   ├── pointcloud_generator.py # Point cloud generation
-│   ├── code_generator.py      # Code generation
-│   └── inference.py           # End-to-end pipeline
-├── training/             # Training utilities
-│   ├── prepare_sketchsampler_data.py
-│   └── prepare_3dllava_data.py
-├── utils/                # Shared utilities
-│   └── pointcloud_utils.py
-├── README.md            # This file
-└── PIPELINE_PLAN.md     # Detailed training plan
+.
+├── src/
+│   ├── pipeline/                  # Main pipeline components
+│   ├── training/                  # Training utilities
+│   ├── utils/                     # Shared utilities
+│   └── PIPELINE_PLAN.md           # Detailed training plan
+├── sketchsampler/                 # SketchSampler submodule
+├── 3d-llava/                      # 3D-LLaVA submodule
+├── dataset/                       # Data assets
+└── README.md                      # This file
 ```
 
 ## Components
@@ -218,4 +214,5 @@ If you get import errors for `sketchsampler` or `3d-llava`:
 - [SketchSampler](https://github.com/cjeen/sketchsampler)
 - [3D-LLaVA](https://github.com/djiajunustc/3D-LLaVA)
 - [img2vector](https://pypi.org/project/img2vector/)
+
 
