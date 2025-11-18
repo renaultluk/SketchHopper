@@ -1,11 +1,8 @@
 """
-Sketch-to-CadQuery Pipeline
-
-This module provides the main pipeline components for converting
-hand-drawn sketches to parametric CadQuery Python code.
+SketchHopper pipeline package.
 """
 
-from .inference import SketchToCadQueryPipeline
+from .inference import SketchHopperPipeline
 
-__all__ = ['SketchToCadQueryPipeline']
+__all__ = ['SketchHopperPipeline']
 

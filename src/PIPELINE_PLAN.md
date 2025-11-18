@@ -1,4 +1,4 @@
-# Sketch-to-CadQuery Pipeline: Training and Inference Plan
+# SketchHopper Pipeline: Training and Inference Plan
 
 ## Overview
 
@@ -235,10 +235,10 @@ sketchhopper/
 
 **Usage**:
 ```python
-from src.pipeline.inference import SketchToCadQueryPipeline
+from src.pipeline.inference import SketchHopperPipeline
 
 # Initialize pipeline
-pipeline = SketchToCadQueryPipeline(
+pipeline = SketchHopperPipeline(
     sketchsampler_checkpoint="path/to/sketchsampler/checkpoint.ckpt",
     llava_checkpoint="path/to/3d-llava/checkpoint",
     device="cuda"

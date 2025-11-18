@@ -13,7 +13,7 @@ from .pointcloud_generator import PointCloudGenerator
 from .code_generator import CodeGenerator
 
 
-class SketchToCadQueryPipeline:
+class SketchHopperPipeline:
     """
     Complete pipeline from sketch to CadQuery code.
     """
@@ -216,7 +216,7 @@ def main():
     args = parser.parse_args()
     
     # Initialize pipeline
-    pipeline = SketchToCadQueryPipeline(
+    pipeline = SketchHopperPipeline(
         sketchsampler_checkpoint=args.sketchsampler_checkpoint,
         llava_checkpoint=args.llava_checkpoint,
         llava_base_model=args.llava_base_model,

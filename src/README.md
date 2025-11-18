@@ -1,10 +1,10 @@
-# Sketch-to-CadQuery Pipeline
+# SketchHopper Pipeline
 
 This directory contains the main pipeline code for converting hand-drawn sketches to parametric CadQuery Python code.
 
 ## Overview
 
-The pipeline consists of three main stages:
+The SketchHopper pipeline consists of three main stages:
 
 1. **Sketch Cleaning** (`pipeline/sketch_cleaner.py`): Uses `img2vector` to clean and preprocess sketches
 2. **Point Cloud Generation** (`pipeline/pointcloud_generator.py`): Uses `SketchSampler` to generate 3D point clouds
@@ -26,10 +26,11 @@ pip install -r 3d-llava/requirements.txt  # if available
 ### Inference (After Training)
 
 ```python
-from src.pipeline import SketchToCadQueryPipeline
+from src.pipeline import SketchHopperPipeline
 
 # Initialize pipeline
-pipeline = SketchToCadQueryPipeline(
+pipeline = SketchHopperPipeline(
+    pipeline = SketchHopperPipeline(
     sketchsampler_checkpoint="path/to/sketchsampler/checkpoint.ckpt",
     llava_checkpoint="path/to/3d-llava/checkpoint",
     device="cuda"
