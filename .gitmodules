@@ -1,0 +1,3 @@
+[submodule "sketchsampler"]
+	path = sketchsampler
+	url = https://github.com/cjeen/sketchsampler.git
