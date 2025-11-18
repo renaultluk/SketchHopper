@@ -1,3 +1,6 @@
 [submodule "sketchsampler"]
 	path = sketchsampler
 	url = https://github.com/cjeen/sketchsampler.git
+[submodule "3d-llava"]
+	path = 3d-llava
+	url = https://github.com/djiajunustc/3D-LLaVA.git
